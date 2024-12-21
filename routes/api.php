@@ -10,4 +10,5 @@ Route::get('/user', function (Request $request) {
 
 Route::controller(RoomController::class)->group(function () {
     Route::post('/rooms', 'store')->name('rooms:create');
+    Route::post('/rooms/{room}/join', 'join')->name('rooms:join');
 });

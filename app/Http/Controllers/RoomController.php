@@ -24,4 +24,20 @@ class RoomController extends Controller
             "participant" => $participant,
         ])->setStatusCode(201);
     }
+
+    public function join(Room $room, Request $request) {
+        $request->validate([
+            "participant_name" => "required|string|max:255",
+        ]);
+
+        $participant = $room->participants()->create([
+            "name" => $request->get("participant_name"),
+            "host" => false,
+        ]);
+
+        return response()->json([
+            "room" => $room,
+            "participant" => $participant,
+        ])->setStatusCode(200);
+    }
 }

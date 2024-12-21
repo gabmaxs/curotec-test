@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->boolean('host')->default(false);
+            $table->uuid('room_id');
             $table->timestamps();
         });
     }

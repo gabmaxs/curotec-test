@@ -1,5 +1,3 @@
-# Collaborative Application Backend
-
 ## Project Description
 
 This project is the backend part of a technical challenge proposed by **Curotec**. The goal of the challenge is to build a real-time collaborative application using **Laravel** and **Vue 3**. The backend handles:

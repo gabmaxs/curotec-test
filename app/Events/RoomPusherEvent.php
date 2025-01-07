@@ -14,14 +14,14 @@ class RoomPusherEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $message;
+    public $room;
 
     /**
      * Create a new event instance.
      */
-    public function __construct($message)
+    public function __construct($room)
     {
-        $this->message = $message;
+        $this->room = $room;
     }
 
     /**
@@ -32,7 +32,7 @@ class RoomPusherEvent implements ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('rooms'),
+            new PrivateChannel('room.' . $this->room->id),
         ];
     }
 }
